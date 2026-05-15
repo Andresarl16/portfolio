@@ -1,11 +1,11 @@
 import { cn } from '@/lib/cn';
-import { Text } from '../Text';
-import type { TextProps } from '../Text/Text';
+import Text from '../text/Text';
+import type { TextProps } from '../text/Text';
 import {
   fontFamilyEnumObject,
   fontSizeEnumObject,
   fontWeightEnumObject,
-} from '../Text/text.cva';
+} from '../text/text.cva';
 import { fieldMessageVariants } from './fieldMessage.cva';
 import {
   labelIntentEnumObject,
