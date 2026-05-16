@@ -16,15 +16,13 @@ const MotionText = motion(Text);
 
 const transition: Transition = {
   duration: 0.9,
-  delay: 0.3,
+  delay: 0.1,
   ease: [0.25, 0.1, 0.25, 1],
 };
 
 function Hero() {
   const translate = useHeroTranslations();
   const offsets = useViewportOffsets();
-
-  if (!offsets) return null;
 
   return (
     <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32 overflow-hidden">
