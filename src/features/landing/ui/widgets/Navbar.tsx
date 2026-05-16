@@ -1,8 +1,8 @@
 'use client';
 
 import { Text } from '@/components/atoms/text';
-import { NAV_LINKS } from '../../domain/landing.constants';
 import { useNavbarTranslations } from '../../application/useNavbarTranslations';
+import { NAV_LINKS } from '../../domain/landing.constants';
 import NavbarLink from '../components/NavbarLink';
 
 function Navbar() {

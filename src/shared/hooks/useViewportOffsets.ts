@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useViewportOffsets() {
   const [offsets, setOffsets] = useState({ vh: 1080, vw: 1920 });

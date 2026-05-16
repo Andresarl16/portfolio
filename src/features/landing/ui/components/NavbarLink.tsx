@@ -1,5 +1,5 @@
+import Link, { type LinkProps } from 'next/link';
 import { Text } from '@/components/atoms/text';
-import Link, { LinkProps } from 'next/link';
 
 interface NavbarLinkProps extends Omit<LinkProps, 'children'> {
   text: string;

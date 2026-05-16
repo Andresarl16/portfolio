@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import { useWhatIBuildTranslations } from '../../application/useWhatIBuildTranslations';
-import WhatIBuildCard from '../components/WhatIBuildCard';
 import { Text } from '@/components/atoms/text';
 import { cn } from '@/lib/cn';
-import { WhatIBuildCardKey } from '../../domain/landing.constants';
+import { useWhatIBuildTranslations } from '../../application/useWhatIBuildTranslations';
+import type { WhatIBuildCardKey } from '../../domain/landing.constants';
 import LandingSection from '../components/LandingSection';
+import WhatIBuildCard from '../components/WhatIBuildCard';
 
 const cardsStylesByKey: Record<WhatIBuildCardKey, string> = {
   /* TODO: Change to enumObject */

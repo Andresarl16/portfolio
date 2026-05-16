@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
-import Text from '../text/Text';
 import type { TextProps } from '../text/Text';
+import Text from '../text/Text';
 import {
   fontFamilyEnumObject,
   fontSizeEnumObject,

@@ -1,13 +1,13 @@
 'use client';
 
+import { motion, type Transition } from 'motion/react';
+import Image from 'next/image';
+import { Badge } from '@/components/atoms/Badge';
 import { Button } from '@/components/atoms/button';
 import { Text } from '@/components/atoms/text';
-import { useHeroTranslations } from '../../application/useHeroTranslations';
-import Image from 'next/image';
-import { HERO_BADGES } from '../../domain/landing.constants';
-import { Badge } from '@/components/atoms/Badge';
-import { motion, Transition } from 'motion/react';
 import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
+import { useHeroTranslations } from '../../application/useHeroTranslations';
+import { HERO_BADGES } from '../../domain/landing.constants';
 import LandingSection from '../components/LandingSection';
 
 const MotionButton = motion(Button);

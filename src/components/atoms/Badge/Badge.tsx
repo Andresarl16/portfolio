@@ -1,5 +1,7 @@
 import type React from 'react';
 import { cn } from '@/lib/cn';
+import { DotIcon } from '../icons';
+import { Text } from '../text';
 import { type BadgeVariantProps, badgeVariants } from './badge.cva';
 import {
   badgeDecoratorEnumObject,
@@ -7,8 +9,6 @@ import {
   type TBadgeDecoratorWithIconEnum,
   type TBadgeDecoratorWithoutIconEnum,
 } from './badge.types';
-import { DotIcon } from '../icons';
-import { Text } from '../text';
 
 type BadgeIconProps =
   | {
