@@ -45,6 +45,7 @@ function Badge({
         badgeVariants({ color, size, type }),
         className
       )}
+      {...props}
     >
       {decorator === badgeDecoratorEnumObject.dot ? <DotIcon /> : null}
       {decorator === badgeDecoratorEnumObject.iconLeading && Icon ? (

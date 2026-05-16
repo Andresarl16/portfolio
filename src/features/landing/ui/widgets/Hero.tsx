@@ -6,14 +6,26 @@ import { useHeroTranslations } from '../../application/useHeroTranslations';
 import Image from 'next/image';
 import { HERO_BADGES } from '../../domain/landing.constants';
 import { Badge } from '@/components/atoms/Badge';
+import { motion, Transition } from 'motion/react';
+
+const MotionButton = motion(Button);
+const MotionBadge = motion(Badge);
+const MotionImage = motion(Image);
+const MotionText = motion(Text);
+
+const transition: Transition = {
+  duration: 0.5,
+  delay: 0.3,
+  ease: [0.45, 0.05, 0.55, 0.95],
+};
 
 function Hero() {
   const translate = useHeroTranslations();
 
   return (
-    <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32">
+    <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32 z-0">
       <div className="w-full flex flex-col items-center gap-2">
-        <Text
+        <MotionText
           as={'h1'}
           className="w-fit txt-brand-tertiary-600 text-center"
           fontFamily={'display'}
@@ -23,10 +35,13 @@ function Hero() {
             sm: { fontSize: 'lg' },
             lg: { fontSize: 'xl' },
           }}
+          initial={{ y: -550 }}
+          animate={{ y: 0 }}
+          transition={transition}
         >
           {translate('title')}
-        </Text>
-        <Text
+        </MotionText>
+        <MotionText
           as={'h2'}
           className="w-fit txt-brand-tertiary-600 text-center"
           fontFamily={'display'}
@@ -36,41 +51,62 @@ function Hero() {
             base: { fontSize: 'xs' },
             lg: { fontSize: 'sm' },
           }}
+          initial={{ y: -250 }}
+          animate={{ y: 0 }}
+          transition={transition}
         >
           {translate('subtitle')}
-        </Text>
+        </MotionText>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-12 lg:pt-0">
         <div className="order-1 flex justify-center lg:justify-start mt-auto mb-8 md:mb-0 lg:mb-20">
-          <Text
+          <MotionText
             as={'p'}
             className="txt-secondary-700 text-center md:text-left"
             fontFamily={'text'}
             fontWeight={'medium'}
             fontSize={'lg'}
+            initial={{ x: -550 }}
+            animate={{ x: 0 }}
+            transition={transition}
           >
             {translate('roleFirstLine')}
             <br />
             {translate('roleSecondLine')}
-          </Text>
+          </MotionText>
         </div>
 
         <div className="order-3 lg:order-2 col-span-1 md:col-span-2 lg:col-span-1 flex justify-center relative h-fit">
-          <Image src={'/me.png'} width={450} height={450} alt={''} />
+          <MotionImage
+            src={'/me.png'}
+            width={450}
+            height={450}
+            alt={''}
+            initial={{ y: 500 }}
+            animate={{ y: 0 }}
+            transition={transition}
+          />
 
           <div className="w-full absolute bottom-16 flex justify-center gap-3">
-            <Button
-              responsiveVariants={{
-                base: { size: 'default' },
-                lg: { size: 'default' },
-              }}
+            <MotionButton
+              size={'default'}
+              initial={{ y: 1000 }}
+              animate={{ y: 0 }}
+              transition={transition}
             >
               {translate('ctaWork')}
-            </Button>
-            <Button size={'default'} variant={'secondary-gray'}>
+            </MotionButton>
+
+            <MotionButton
+              size={'default'}
+              variant={'secondary-gray'}
+              initial={{ y: 800 }}
+              animate={{ y: 0 }}
+              transition={transition}
+            >
               {translate('ctaContact')}
-            </Button>
+            </MotionButton>
           </div>
         </div>
 
@@ -82,15 +118,18 @@ function Hero() {
             HERO_BADGES.slice(5),
           ].map((row, rowIndex) => (
             <div key={rowIndex} className="flex gap-3">
-              {row.map((badge) => (
-                <Badge
-                  color={'brand'}
+              {row.map((badge, badgeIndex) => (
+                <MotionBadge
                   key={badge}
+                  color={'brand'}
                   size={'md'}
                   type={'pillColor'}
+                  initial={{ x: 550 + 200 * badgeIndex }}
+                  animate={{ x: 0 }}
+                  transition={transition}
                 >
                   {badge}
-                </Badge>
+                </MotionBadge>
               ))}
             </div>
           ))}

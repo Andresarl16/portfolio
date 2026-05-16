@@ -5,7 +5,7 @@ import WhatIBuild from '../widgets/WhatIBuild';
 
 function Landing() {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <Suspense>
         <Navbar />
 
