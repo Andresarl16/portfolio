@@ -1,5 +1,15 @@
 /* Tailwind v4 entrypoint (CSS-first) */
 @import "tailwindcss";
+
+/* --------------------- */
+/* FORCE LIGHT MODE */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+/* --------------------- */
+
 @import "tw-animate-css";
 
 @import "../css/color-variables.css";
