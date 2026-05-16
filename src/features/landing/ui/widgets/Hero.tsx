@@ -9,7 +9,7 @@ function Hero() {
   const translate = useHeroTranslations();
 
   return (
-    <section className="flex flex-col bg-secondary-500 px-24">
+    <section className="flex flex-col bg-secondary-500 px-24 pt-32">
       <div className="w-full flex flex-col items-center gap-2">
         <Text
           as={'h1'}
