@@ -24,3 +24,10 @@ export const HERO_BADGES: Array<string> = [
   'React',
   'TailwindCSS',
 ];
+
+export const WhatIBuildCardKeys = [
+  'multi-app',
+  'architecture',
+  'production',
+  'reusable',
+];

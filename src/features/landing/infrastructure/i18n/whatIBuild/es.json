@@ -1,0 +1,22 @@
+{
+  "welcome": "Bienvenido",
+  "whatIBuild": "Qué Construyo",
+  "cards": [
+    {
+      "title": "Ecosistemas multi-app",
+      "description": "Diseño y construyo ecosistemas multi-app que permiten a los equipos trabajar de forma independiente mientras comparten componentes e infraestructura comunes."
+    },
+    {
+      "title": "Pensamiento orientado a la arquitectura",
+      "description": "Priorizo la arquitectura y el diseño en mi trabajo, asegurando que los sistemas estén construidos para escalar y evolucionar con el tiempo."
+    },
+    {
+      "title": "Sistemas listos para producción",
+      "description": "Tengo experiencia construyendo sistemas listos para producción que son confiables, eficientes y mantenibles."
+    },
+    {
+      "title": "Componentes reutilizables",
+      "description": "Creo componentes y librerías reutilizables que pueden compartirse entre proyectos, reduciendo la duplicación y mejorando la consistencia."
+    }
+  ]
+}
