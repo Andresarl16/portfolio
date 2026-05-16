@@ -9,7 +9,7 @@ function Navbar() {
   const translate = useNavbarTranslations();
 
   return (
-    <nav className="fixed top-6 w-full flex justify-center gap-4 z-20">
+    <nav className="fixed top-6 w-full max-w-screen-2xl flex justify-center gap-4 z-20">
       <div className="flex bg-white/40 backdrop-blur-xs px-14 py-5 rounded-full gap-10">
         {NAV_LINKS.map(({ href, labelKey }) => (
           // TODO: Missing Highlight current Section
