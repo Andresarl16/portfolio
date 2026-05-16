@@ -27,8 +27,8 @@ function LandingSection({
           'max-w-screen-2xl 2xl:mx-auto overflow-hidden',
           removePadding?.top ? '' : 'pt-12 md:pt-16 xl:pt-24',
           removePadding?.bottom ? '' : 'pb-12 md:pb-16 xl:pb-24',
-          removePadding?.left ? '' : 'px-4 sm:px-6 lg:px-8',
-          removePadding?.right ? '' : 'px-4 sm:px-6 lg:px-8',
+          removePadding?.left ? '' : 'pl-12 sm:pl-16 lg:pl-24',
+          removePadding?.right ? '' : 'pr-12 sm:pr-26 lg:pr-24',
           className?.div
         )}
       >
