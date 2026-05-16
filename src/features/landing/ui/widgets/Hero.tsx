@@ -8,6 +8,7 @@ import { HERO_BADGES } from '../../domain/landing.constants';
 import { Badge } from '@/components/atoms/Badge';
 import { motion, Transition } from 'motion/react';
 import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
+import LandingSection from '../components/LandingSection';
 
 const MotionButton = motion(Button);
 const MotionBadge = motion(Badge);
@@ -25,7 +26,16 @@ function Hero() {
   const offsets = useViewportOffsets();
 
   return (
-    <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32 overflow-hidden">
+    <LandingSection
+      className={{
+        div: 'flex flex-col pt-32 pb-0 overflow-hidden',
+        section: 'bg-secondary-500',
+      }}
+      removePadding={{
+        top: true,
+        bottom: true,
+      }}
+    >
       <div className="w-full flex flex-col items-center gap-2">
         <MotionText
           as={'h1'}
@@ -142,7 +152,7 @@ function Hero() {
           ))}
         </div>
       </div>
-    </section>
+    </LandingSection>
   );
 }
 

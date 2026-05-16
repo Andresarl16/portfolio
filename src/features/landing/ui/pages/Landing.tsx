@@ -5,9 +5,9 @@ import WhatIBuild from '../widgets/WhatIBuild';
 
 function Landing() {
   return (
-    <main className="relative max-w-screen-2xl mx-auto overflow-x-hidden">
+    <main className="relative overflow-x-hidden">
       <Suspense>
-        <Navbar />
+        {/*  <Navbar /> */}
 
         <Hero />
 

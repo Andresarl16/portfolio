@@ -6,6 +6,7 @@ import WhatIBuildCard from '../components/WhatIBuildCard';
 import { Text } from '@/components/atoms/text';
 import { cn } from '@/lib/cn';
 import { WhatIBuildCardKey } from '../../domain/landing.constants';
+import LandingSection from '../components/LandingSection';
 
 const cardsStylesByKey: Record<WhatIBuildCardKey, string> = {
   /* TODO: Change to enumObject */
@@ -26,7 +27,12 @@ function WhatIBuild() {
   }
 
   return (
-    <section className="grid grid-cols-7 xl:grid-cols-5 bg-primary gap-4 px-12 md:px-16 xl:px-24 py-24">
+    <LandingSection
+      className={{
+        div: 'grid grid-cols-7 xl:grid-cols-5 gap-4',
+        section: 'bg-primary',
+      }}
+    >
       <div className="col-span-7 lg:col-span-3 xl:col-span-2 row-span-2 col-start-1 lg:col-start-5 xl:col-start-4 order-0 lg:order-3 flex flex-col gap-2">
         <Text
           className="txt-primary-900 text-right"
@@ -62,7 +68,7 @@ function WhatIBuild() {
           description={card.description}
         />
       ))}
-    </section>
+    </LandingSection>
   );
 }
 
