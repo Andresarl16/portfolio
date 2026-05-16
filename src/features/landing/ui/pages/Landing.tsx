@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Hero from '../widgets/Hero';
 
 function Landing() {
   return (
     <main>
-      <Hero />
+      <Suspense>
+        <Hero />
+      </Suspense>
     </main>
   );
 }

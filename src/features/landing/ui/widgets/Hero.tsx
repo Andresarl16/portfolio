@@ -1,9 +1,13 @@
+'use client';
+
 import { Button } from '@/components/atoms/button';
 import { Text } from '@/components/atoms/text';
+import { useHeroTranslations } from '../../application/useHeroTranslations';
 import Image from 'next/image';
-import React from 'react';
 
 function Hero() {
+  const translate = useHeroTranslations();
+
   return (
     <section className="flex flex-col bg-secondary-500 px-24">
       <div className="w-full flex flex-col items-center gap-2">
@@ -14,7 +18,7 @@ function Hero() {
           fontWeight={'bold'}
           fontSize={'xl'}
         >
-          Hey, I’m Andrés
+          {translate('title')}
         </Text>
         <Text
           as={'h2'}
@@ -23,7 +27,7 @@ function Hero() {
           fontWeight={'medium'}
           fontSize={'sm'}
         >
-          I design and lead web systems built to scale.
+          {translate('subtitle')}
         </Text>
       </div>
 
@@ -36,7 +40,7 @@ function Hero() {
             fontWeight={'medium'}
             fontSize={'lg'}
           >
-            Tech Lead · Full-Stack Engineer · Architecture-first thinking
+            {translate('role')}
           </Text>
         </div>
 
@@ -44,8 +48,10 @@ function Hero() {
           <Image src={'/me.png'} width={450} height={450} alt={''} />
 
           <div className="w-full absolute bottom-16 flex justify-center gap-3">
-            <Button>Explore My Work</Button>
-            <Button variant={'secondary-gray'}>Let’s Build Something</Button>
+            <Button>{translate('ctaWork')}</Button>
+            <Button variant={'secondary-gray'}>
+              {translate('ctaContact')}
+            </Button>
           </div>
         </div>
 
