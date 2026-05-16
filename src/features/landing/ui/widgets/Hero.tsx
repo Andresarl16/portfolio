@@ -41,8 +41,8 @@ function Hero() {
         </Text>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-12 xl:pt-0">
-        <div className="order-1 flex justify-center xl:justify-start mt-auto mb-8 md:mb-0 xl:mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-12 lg:pt-0">
+        <div className="order-1 flex justify-center lg:justify-start mt-auto mb-8 md:mb-0 lg:mb-20">
           <Text
             as={'p'}
             className="txt-secondary-700 text-center md:text-left"
@@ -56,7 +56,7 @@ function Hero() {
           </Text>
         </div>
 
-        <div className="order-3 xl:order-2 col-span-1 md:col-span-2 xl:col-span-1 flex justify-center relative h-fit">
+        <div className="order-3 lg:order-2 col-span-1 md:col-span-2 lg:col-span-1 flex justify-center relative h-fit">
           <Image src={'/me.png'} width={450} height={450} alt={''} />
 
           <div className="w-full absolute bottom-16 flex justify-center gap-3">
@@ -74,7 +74,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="order-2 xl:order-3 flex flex-col items-center md:items-end mx-0 md:mx-auto xl:mx-0 mt-auto gap-3 mb-0 xl:mb-20">
+        <div className="order-2 lg:order-3 flex flex-col items-center md:items-end mx-0 md:mx-auto lg:mx-0 mt-auto gap-3 mb-0 lg:mb-20">
           {/* TODO: Move this to logic? */}
           {[
             HERO_BADGES.slice(0, 3),
