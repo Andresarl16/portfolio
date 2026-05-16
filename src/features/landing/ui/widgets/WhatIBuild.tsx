@@ -40,7 +40,7 @@ function WhatIBuild() {
           {translate('title')}
         </Text>
         <Text
-          className="txt-secondary-700 text-right text-balance"
+          className="txt-secondary-700 text-right max-w-[44ch] lg:max-w-none ml-auto"
           fontWeight={'regular'}
           responsiveVariants={{
             base: { fontSize: 'lg' },
@@ -55,7 +55,7 @@ function WhatIBuild() {
         <WhatIBuildCard
           className={cn(
             'col-span-6 sm:col-span-5 lg:col-span-3 xl:col-span-2',
-            getCardStyles(card.key)
+            getCardStyles(card.key as WhatIBuildCardKey)
           )}
           key={card.key}
           title={card.title}
