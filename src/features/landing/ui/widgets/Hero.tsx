@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { HERO_BADGES } from '../../domain/landing.constants';
 import { Badge } from '@/components/atoms/Badge';
 import { motion, Transition } from 'motion/react';
+import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
 
 const MotionButton = motion(Button);
 const MotionBadge = motion(Badge);
@@ -14,13 +15,16 @@ const MotionImage = motion(Image);
 const MotionText = motion(Text);
 
 const transition: Transition = {
-  duration: 0.6,
+  duration: 0.9,
   delay: 0.3,
-  ease: [0.45, 0.05, 0.55, 0.95],
+  ease: [0.25, 0.1, 0.25, 1],
 };
 
 function Hero() {
   const translate = useHeroTranslations();
+  const offsets = useViewportOffsets();
+
+  if (!offsets) return null;
 
   return (
     <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32 overflow-hidden">
@@ -35,7 +39,7 @@ function Hero() {
             sm: { fontSize: 'lg' },
             lg: { fontSize: 'xl' },
           }}
-          initial={{ y: -550 }}
+          initial={{ y: -offsets.vh - 300 }}
           animate={{ y: 0 }}
           transition={transition}
         >
@@ -51,7 +55,7 @@ function Hero() {
             base: { fontSize: 'xs' },
             lg: { fontSize: 'sm' },
           }}
-          initial={{ y: -250 }}
+          initial={{ y: -offsets.vh }}
           animate={{ y: 0 }}
           transition={transition}
         >
@@ -67,7 +71,7 @@ function Hero() {
             fontFamily={'text'}
             fontWeight={'medium'}
             fontSize={'lg'}
-            initial={{ x: -550 }}
+            initial={{ x: -offsets.vw }}
             animate={{ x: 0 }}
             transition={transition}
           >
@@ -83,7 +87,7 @@ function Hero() {
             width={450}
             height={450}
             alt={''}
-            initial={{ y: 500 }}
+            initial={{ y: offsets.vh }}
             animate={{ y: 0 }}
             transition={transition}
           />
@@ -91,7 +95,7 @@ function Hero() {
           <div className="w-full absolute bottom-16 flex justify-center gap-3">
             <MotionButton
               size={'default'}
-              initial={{ y: 1000 }}
+              initial={{ y: offsets.vh * 1.1 }}
               animate={{ y: 0 }}
               transition={transition}
             >
@@ -101,7 +105,7 @@ function Hero() {
             <MotionButton
               size={'default'}
               variant={'secondary-gray'}
-              initial={{ y: 800 }}
+              initial={{ y: offsets.vh * 0.95 }}
               animate={{ y: 0 }}
               transition={transition}
             >
@@ -124,7 +128,12 @@ function Hero() {
                   color={'brand'}
                   size={'md'}
                   type={'pillColor'}
-                  initial={{ x: 550 + 200 * badgeIndex }}
+                  initial={{
+                    x:
+                      offsets.vw *
+                        (rowIndex === 0 ? 0.6 : rowIndex === 1 ? 0.8 : 1.0) +
+                      offsets.vw * 0.15 * badgeIndex,
+                  }}
                   animate={{ x: 0 }}
                   transition={transition}
                 >
