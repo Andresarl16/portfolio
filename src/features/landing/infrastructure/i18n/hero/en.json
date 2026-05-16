@@ -1,7 +1,8 @@
 {
   "title": "Hey, I'm Andrés",
   "subtitle": "I design and lead web systems built to scale.",
-  "role": "Full-Stack Engineer · Tech Lead · Architecture-first thinking",
+  "roleFirstLine": "Full-Stack Engineer · Tech Lead",
+  "roleSecondLine": "Architecture-first thinking",
   "ctaWork": "Explore My Work",
   "ctaContact": "Let's Build Something"
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { Text } from '@/components/atoms/text';
-import { NAV_LINKS } from '../../domain/navLinks.constants';
+import { NAV_LINKS } from '../../domain/landing.constants';
 import { useNavbarTranslations } from '../../application/useNavbarTranslations';
 import NavbarLink from '../components/NavbarLink';
 
@@ -16,7 +16,8 @@ function Navbar() {
           <NavbarLink key={href} href={href} text={translate(labelKey)} />
         ))}
       </div>
-      <div className="bg-brand-400/40 backdrop-blur-xs px-14 py-5 rounded-full">
+      {/* TODO: Change this div for a Button */}
+      <div className="bg-brand-400 backdrop-blur-xs px-14 py-5 rounded-full">
         <Text
           className="txt-primary_on-brand"
           fontWeight={'medium'}

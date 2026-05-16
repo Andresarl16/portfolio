@@ -1,7 +1,8 @@
 {
   "title": "Hola, soy Andrés",
   "subtitle": "Diseño y lidero sistemas web construidos para escalar.",
-  "role": "Ingeniero Full-Stack · Tech Lead · Pensamiento orientado a la arquitectura",
+  "roleFirstLine": "Ingeniero Full-Stack · Tech Lead",
+  "roleSecondLine": "Pensamiento orientado a la arquitectura",
   "ctaWork": "Explora Mi Trabajo",
   "ctaContact": "Construyamos Algo"
 }

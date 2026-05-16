@@ -69,7 +69,7 @@ export const badgeVariants = cva(cn('border'), {
       type: [badgeTypeEnumObject.badgeColor, badgeTypeEnumObject.pillColor],
       color: badgeColorEnumObject.brand,
       class:
-        'bg-gray-light-mode-50 dark:bg-gray-dark-mode-900 border-gray-light-mode-200 dark:border-gray-dark-mode-700',
+        'bg-brand-500 dark:border-brand-500 border-brand-500 dark:border-brand-500 text-brand-50',
     },
     {
       type: [badgeTypeEnumObject.badgeColor, badgeTypeEnumObject.pillColor],
