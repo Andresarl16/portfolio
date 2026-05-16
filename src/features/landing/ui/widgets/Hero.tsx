@@ -14,7 +14,7 @@ const MotionImage = motion(Image);
 const MotionText = motion(Text);
 
 const transition: Transition = {
-  duration: 0.5,
+  duration: 0.6,
   delay: 0.3,
   ease: [0.45, 0.05, 0.55, 0.95],
 };
@@ -23,7 +23,7 @@ function Hero() {
   const translate = useHeroTranslations();
 
   return (
-    <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32 z-0">
+    <section className="flex flex-col bg-secondary-500 px-12 md:px-24 pt-32 overflow-hidden">
       <div className="w-full flex flex-col items-center gap-2">
         <MotionText
           as={'h1'}
