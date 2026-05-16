@@ -91,7 +91,7 @@ function Hero() {
 
         <div className="order-3 lg:order-2 col-span-1 md:col-span-2 lg:col-span-1 flex justify-center relative h-fit">
           <MotionImage
-            src={'/me.png'}
+            src={'/me.webp'}
             width={450}
             height={450}
             alt={''}
