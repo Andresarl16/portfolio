@@ -3,22 +3,65 @@
 import React from 'react';
 import { useWhatIBuildTranslations } from '../../application/useWhatIBuildTranslations';
 import WhatIBuildCard from '../components/WhatIBuildCard';
+import { Text } from '@/components/atoms/text';
+import { cn } from '@/lib/cn';
+import { WhatIBuildCardKey } from '../../domain/landing.constants';
+
+const cardsStylesByKey: Record<WhatIBuildCardKey, string> = {
+  /* TODO: Change to enumObject */
+  'multi-app-ecosystems': 'order-2 col-start-1',
+  'architecture-first-thinking':
+    'order-4 col-start-2 sm:col-start-3 lg:col-start-2 xl:col-start-2',
+  'production-ready-systems': 'order-6 col-start-1',
+  'reusable-components':
+    'order-8 col-start-2 sm:col-start-3 lg:col-start-5 xl:col-start-4',
+};
 
 function WhatIBuild() {
   const translate = useWhatIBuildTranslations();
   const cards = translate('cards');
 
+  function getCardStyles(key: WhatIBuildCardKey): string {
+    return cardsStylesByKey[key] ?? '';
+  }
+
   return (
-    <section>
-      <div className="flex flex-col gap-4 p-24">
-        {cards.map((card) => (
-          <WhatIBuildCard
-            key={card.title}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
+    <section className="grid grid-cols-7 xl:grid-cols-5 gap-4 px-12 md:px-16 xl:px-24 py-24">
+      <div className="col-span-7 lg:col-span-3 xl:col-span-2 row-span-2 col-start-1 lg:col-start-5 xl:col-start-4 order-0 lg:order-3 flex flex-col gap-2">
+        <Text
+          className="txt-primary-900 text-right"
+          fontFamily={'display'}
+          fontWeight={'bold'}
+          responsiveVariants={{
+            base: { fontSize: 'lg' },
+            xl: { fontSize: 'xl' },
+          }}
+        >
+          {translate('title')}
+        </Text>
+        <Text
+          className="txt-secondary-700 text-right text-balance"
+          fontWeight={'regular'}
+          responsiveVariants={{
+            base: { fontSize: 'lg' },
+            xl: { fontSize: 'xl' },
+          }}
+        >
+          {translate('description')}
+        </Text>
       </div>
+
+      {cards.map((card, index) => (
+        <WhatIBuildCard
+          className={cn(
+            'col-span-6 sm:col-span-5 lg:col-span-3 xl:col-span-2',
+            getCardStyles(card.key)
+          )}
+          key={card.key}
+          title={card.title}
+          description={card.description}
+        />
+      ))}
     </section>
   );
 }

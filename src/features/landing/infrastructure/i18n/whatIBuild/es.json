@@ -1,20 +1,24 @@
 {
-  "welcome": "Bienvenido",
-  "whatIBuild": "Qué Construyo",
+  "title": "Qué Construyo",
+  "description": "Construyo sistemas escalables y mantenibles diseñados para crecer con el producto y el equipo.",
   "cards": [
     {
+      "key": "multi-app-ecosystems",
       "title": "Ecosistemas multi-app",
       "description": "Diseño y construyo ecosistemas multi-app que permiten a los equipos trabajar de forma independiente mientras comparten componentes e infraestructura comunes."
     },
     {
+      "key": "architecture-first-thinking",
       "title": "Pensamiento orientado a la arquitectura",
       "description": "Priorizo la arquitectura y el diseño en mi trabajo, asegurando que los sistemas estén construidos para escalar y evolucionar con el tiempo."
     },
     {
+      "key": "production-ready-systems",
       "title": "Sistemas listos para producción",
       "description": "Tengo experiencia construyendo sistemas listos para producción que son confiables, eficientes y mantenibles."
     },
     {
+      "key": "reusable-components",
       "title": "Componentes reutilizables",
       "description": "Creo componentes y librerías reutilizables que pueden compartirse entre proyectos, reduciendo la duplicación y mejorando la consistencia."
     }

@@ -25,9 +25,8 @@ export const HERO_BADGES: Array<string> = [
   'TailwindCSS',
 ];
 
-export const WhatIBuildCardKeys = [
-  'multi-app',
-  'architecture',
-  'production',
-  'reusable',
-];
+export type WhatIBuildCardKey =
+  | 'multi-app-ecosystems'
+  | 'architecture-first-thinking'
+  | 'production-ready-systems'
+  | 'reusable-components';

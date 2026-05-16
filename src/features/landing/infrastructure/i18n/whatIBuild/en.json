@@ -1,20 +1,24 @@
 {
-  "welcome": "Welcome",
-  "whatIBuild": "What I Build",
+  "title": "What I Build",
+  "description": "I build scalable, maintainable systems designed to grow with the product and the team.",
   "cards": [
     {
+      "key": "multi-app-ecosystems",
       "title": "Multi-app ecosystems",
       "description": "I design and build multi-app ecosystems that allow teams to work independently while sharing common components and infrastructure."
     },
     {
+      "key": "architecture-first-thinking",
       "title": "Architecture-first thinking",
       "description": "I prioritize architecture and design in my work, ensuring that systems are built to scale and can evolve over time."
     },
     {
+      "key": "production-ready-systems",
       "title": "Production-ready systems",
       "description": "I have experience building production-ready systems that are reliable, performant, and maintainable."
     },
     {
+      "key": "reusable-components",
       "title": "Reusable components",
       "description": "I create reusable components and libraries that can be shared across projects, reducing duplication and improving consistency."
     }
