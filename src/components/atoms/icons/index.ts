@@ -1,1 +1,13 @@
+export { default as ArrowRightIcon } from './ArrowRightIcon';
+export { default as CiCdPipelinesIcon } from './CiCdPipelinesIcon';
+export { default as CypressIcon } from './CypressIcon';
 export { default as DotIcon } from './DotIcon';
+export { default as GitHubIcon } from './GitHubIcon';
+export { default as JestIcon } from './JestIcon';
+export { default as MongoDbIcon } from './MongoDbIcon';
+export { default as NextJsIcon } from './NextJsIcon';
+export { default as PostgressSqlIcon } from './PostgressSqlIcon';
+export { default as ReactIcon } from './ReactIcon';
+export { default as SupabaseIcon } from './SupabaseIcon';
+export { default as TailwindCssIcon } from './TailwindCssIcon';
+export { default as TypeScriptIcon } from './TypeScriptIcon';
