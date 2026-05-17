@@ -49,8 +49,8 @@ function Toolbox() {
             key={group.title}
             className={groupStylesByKey[group.key as ToolboxGroupKey]}
             title={group.title}
-            // TODO: Fix this warning
-            itemKeys={group.elementKeys}
+            // TODO: Fix remove any
+            itemKeys={group.elementKeys as any}
           />
         ))}
       </div>

@@ -51,7 +51,7 @@ function SystemsIHaveBuilt() {
   return (
     <LandingSection
       className={{
-        section: 'bg-brand-200',
+        section: 'bg-brand-100',
       }}
       removePadding={{ left: true, right: true }}
     >
