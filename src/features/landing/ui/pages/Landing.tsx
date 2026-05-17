@@ -4,6 +4,7 @@ import Navbar from '../widgets/Navbar';
 import WhatIBuild from '../widgets/WhatIBuild';
 import SystemsIHaveBuilt from '../widgets/SystemsIHaveBuilt';
 import ArchitectureAndThinking from '../widgets/ArchitectureAndThinking';
+import Toolbox from '../widgets/Toolbox';
 
 function Landing() {
   return (
@@ -18,6 +19,8 @@ function Landing() {
         <SystemsIHaveBuilt />
 
         <ArchitectureAndThinking />
+
+        <Toolbox />
       </Suspense>
     </main>
   );

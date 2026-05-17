@@ -41,11 +41,11 @@ function ArchitectureAndThinking() {
 
   return (
     <LandingSection
-      className={{ div: 'relative mb-32' }}
+      className={{ div: 'relative' }}
       removePadding={{ top: true, bottom: true, left: true, right: true }}
     >
       <ArchitectureAndThinkingBackground className="absolute inset-0 text-brand-200 -z-10" />
-      <div className="flex flex-col mx-20 p-12 md:p-16 xl:p-24 rounded-b-[240px]">
+      <div className="flex flex-col mx-20 p-12 md:p-16 xl:p-24">
         <div className="flex flex-col gap-2 mb-10" ref={titleDescriptionRef}>
           <MotionText
             as="h1"
