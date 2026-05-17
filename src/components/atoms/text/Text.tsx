@@ -35,7 +35,8 @@ export interface TextProps
   as?: TTextAllowedTag;
   children: React.ReactNode;
   responsiveVariants?: ResponsiveCVA<TextVariantsProps>;
-  ref?: React.Ref<HTMLElement>;
+  // biome-ignore lint/suspicious/noExplicitAny: <This could be a Ref for any HTMLElement, and we want to allow that flexibility.>
+  ref?: React.Ref<any>;
 }
 
 function Text({
