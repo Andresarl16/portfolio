@@ -1,0 +1,30 @@
+{
+  "title": "Architecture & Thinking",
+  "description": "My technical decisions are driven by scale, clarity and long-term impact — not trends.",
+  "elements": [
+    {
+      "key": "modularity",
+      "title": "Modularity",
+      "descriptionLine1": "Clear boundaries over complex abstractions",
+      "descriptionLine2": "Systems should evolve without rewriting what already works."
+    },
+    {
+      "key": "scalability",
+      "title": "Scalability",
+      "descriptionLine1": "Scaling capability, not complexity",
+      "descriptionLine2": "Growth should add value, not cognitive load."
+    },
+    {
+      "key": "quality",
+      "title": "Quality",
+      "descriptionLine1": "Testing as part of the system",
+      "descriptionLine2": "Unit and end-to-end tests are built into the development process."
+    },
+    {
+      "key": "trade-offs",
+      "title": "Trade-offs",
+      "descriptionLine1": "Every decision has a cost",
+      "descriptionLine2": "I favor explicit trade-offs over premature optimization."
+    }
+  ]
+}

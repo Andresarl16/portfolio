@@ -1,0 +1,30 @@
+{
+  "title": "Arquitectura y Pensamiento",
+  "description": "Mis decisiones técnicas están impulsadas por escala, claridad y impacto a largo plazo — no por tendencias.",
+  "elements": [
+    {
+      "key": "modularity",
+      "title": "Modularidad",
+      "descriptionLine1": "Límites claros sobre abstracciones complejas",
+      "descriptionLine2": "Los sistemas deben evolucionar sin reescribir lo que ya funciona."
+    },
+    {
+      "key": "scalability",
+      "title": "Escalabilidad",
+      "descriptionLine1": "Capacidad de escalado, no complejidad",
+      "descriptionLine2": "El crecimiento debe agregar valor, no carga cognitiva."
+    },
+    {
+      "key": "quality",
+      "title": "Calidad",
+      "descriptionLine1": "Pruebas como parte del sistema",
+      "descriptionLine2": "Las pruebas unitarias y de extremo a extremo están integradas en el proceso de desarrollo."
+    },
+    {
+      "key": "trade-offs",
+      "title": "Compromisos",
+      "descriptionLine1": "Cada decisión tiene un costo",
+      "descriptionLine2": "Prefiero compromisos explícitos sobre optimización prematura."
+    }
+  ]
+}

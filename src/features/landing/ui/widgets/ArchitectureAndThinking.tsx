@@ -1,11 +1,21 @@
+'use client';
+
 import React from 'react';
 import LandingSection from '../components/LandingSection';
 import { Text } from '@/components/atoms/text';
 import ArchitectureAndThinkingElement from '../components/ArchitectureAndThinkingElement';
+import { useArchitectureAndThinkingTranslations } from '../../application/useArchitectureAndThinkingTranslations';
 
 function ArchitectureAndThinking() {
+  const translate = useArchitectureAndThinkingTranslations();
+  const elements = translate('elements');
+
   return (
-    <LandingSection>
+    <LandingSection
+      className={{
+        section: 'bg-brand-200',
+      }}
+    >
       <div className="flex flex-col mb-10">
         <Text
           as="h1"
@@ -14,7 +24,7 @@ function ArchitectureAndThinking() {
           fontWeight={'bold'}
           fontSize={'xl'}
         >
-          'title'
+          {translate('title')}
         </Text>
         <Text
           as="h2"
@@ -22,16 +32,19 @@ function ArchitectureAndThinking() {
           fontWeight={'regular'}
           fontSize={'xl'}
         >
-          'description'
+          {translate('description')}
         </Text>
       </div>
 
       <div className="flex flex-col gap-8">
-        <ArchitectureAndThinkingElement
-          title={'tt'}
-          descriptionLine1={'d1'}
-          descriptionLine2={'d2'}
-        />
+        {elements.map((element) => (
+          <ArchitectureAndThinkingElement
+            key={element.key}
+            title={element.title}
+            descriptionLine1={element.descriptionLine1}
+            descriptionLine2={element.descriptionLine2}
+          />
+        ))}
       </div>
     </LandingSection>
   );

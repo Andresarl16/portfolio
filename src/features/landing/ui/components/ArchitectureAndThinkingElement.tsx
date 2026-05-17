@@ -28,12 +28,12 @@ function ArchitectureAndThinkingElement({
 
       <Text
         as="p"
-        className="w-fit flex flex-col txt-brand-500 gap-1"
+        className="w-fit flex flex-col text-brand-500 gap-1"
         fontWeight={'regular'}
         fontSize={'md'}
       >
-        <span>{descriptionLine1}</span>
-        <span>{descriptionLine2}</span>
+        <span className="text-center">{descriptionLine1}</span>
+        <span className="text-center">{descriptionLine2}</span>
       </Text>
     </div>
   );
