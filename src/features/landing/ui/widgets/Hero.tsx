@@ -1,11 +1,13 @@
 'use client';
 
+import { useRef } from 'react';
 import { motion, type Transition } from 'motion/react';
 import Image from 'next/image';
 import { Badge } from '@/components/atoms/Badge';
 import { Button } from '@/components/atoms/button';
 import { Text } from '@/components/atoms/text';
 import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
+import useScrollReveal from '@/shared/hooks/useScrollReveal';
 import { useHeroTranslations } from '../../application/useHeroTranslations';
 import { HERO_BADGES } from '../../domain/landing.constants';
 import LandingSection from '../components/LandingSection';
@@ -17,13 +19,58 @@ const MotionText = motion(Text);
 
 const transition: Transition = {
   duration: 0.9,
-  delay: 0.1,
+  delay: 0,
   ease: [0.25, 0.1, 0.25, 1],
 };
 
+const revealToY0 = { definition: { y: 0 } };
+const revealToX0 = { definition: { x: 0 } };
+
 function Hero() {
   const translate = useHeroTranslations();
-  const offsets = useViewportOffsets();
+  const { vh, vw } = useViewportOffsets();
+
+  const titleSubtitleRef = useRef<HTMLDivElement>(null);
+  const roleRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+  const badgesRef = useRef<HTMLDivElement>(null);
+
+  const { animationControls: titleControls } = useScrollReveal({
+    ref: titleSubtitleRef,
+    amount: 0.15,
+    animationStart: revealToY0,
+  });
+  const { animationControls: subtitleControls } = useScrollReveal({
+    ref: titleSubtitleRef,
+    amount: 0.15,
+    animationStart: revealToY0,
+  });
+  const { animationControls: roleControls } = useScrollReveal({
+    ref: roleRef,
+    amount: 0.15,
+    animationStart: revealToX0,
+  });
+  const { animationControls: imageControls } = useScrollReveal({
+    ref: imageRef,
+    amount: 0.15,
+    animationStart: revealToY0,
+  });
+  const { animationControls: button1Controls } = useScrollReveal({
+    ref: buttonsRef,
+    amount: 0.1,
+    animationStart: revealToY0,
+  });
+  const { animationControls: button2Controls } = useScrollReveal({
+    ref: buttonsRef,
+    amount: 0.1,
+    animationStart: revealToY0,
+  });
+  const { animationControls: badgesControls } = useScrollReveal({
+    ref: badgesRef,
+    amount: 0.15,
+    animationStart: revealToX0,
+  });
 
   return (
     <LandingSection
@@ -36,7 +83,10 @@ function Hero() {
         bottom: true,
       }}
     >
-      <div className="w-full flex flex-col items-center gap-2">
+      <div
+        className="w-full flex flex-col items-center gap-2"
+        ref={titleSubtitleRef}
+      >
         <MotionText
           as={'h1'}
           className="w-fit txt-brand-tertiary-600 text-center"
@@ -47,8 +97,8 @@ function Hero() {
             sm: { fontSize: 'lg' },
             lg: { fontSize: 'xl' },
           }}
-          initial={{ y: -offsets.vh - 300 }}
-          animate={{ y: 0 }}
+          initial={{ y: -vh - 300 }}
+          animate={titleControls}
           transition={transition}
         >
           {translate('title')}
@@ -63,8 +113,8 @@ function Hero() {
             base: { fontSize: 'xs' },
             lg: { fontSize: 'sm' },
           }}
-          initial={{ y: -offsets.vh }}
-          animate={{ y: 0 }}
+          initial={{ y: -vh }}
+          animate={subtitleControls}
           transition={transition}
         >
           {translate('subtitle')}
@@ -74,13 +124,14 @@ function Hero() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-12 lg:pt-0">
         <div className="order-1 flex justify-center lg:justify-start mt-auto mb-8 md:mb-0 lg:mb-20">
           <MotionText
+            ref={roleRef}
             as={'p'}
             className="txt-secondary-700 text-center md:text-left"
             fontFamily={'text'}
             fontWeight={'medium'}
             fontSize={'lg'}
-            initial={{ x: -offsets.vw }}
-            animate={{ x: 0 }}
+            initial={{ x: -vw }}
+            animate={roleControls}
             transition={transition}
           >
             {translate('roleFirstLine')}
@@ -92,19 +143,23 @@ function Hero() {
         <div className="order-3 lg:order-2 col-span-1 md:col-span-2 lg:col-span-1 flex justify-center relative h-fit">
           <MotionImage
             src={'/me.webp'}
+            ref={imageRef}
             width={450}
             height={450}
             alt={''}
-            initial={{ y: offsets.vh }}
-            animate={{ y: 0 }}
+            initial={{ y: vh }}
+            animate={imageControls}
             transition={transition}
           />
 
-          <div className="w-full absolute bottom-16 flex justify-center gap-3">
+          <div
+            className="w-full absolute bottom-16 flex justify-center gap-3"
+            ref={buttonsRef}
+          >
             <MotionButton
               size={'default'}
-              initial={{ y: offsets.vh * 1.1 }}
-              animate={{ y: 0 }}
+              initial={{ y: vh * 1.1 }}
+              animate={button1Controls}
               transition={transition}
             >
               {translate('ctaWork')}
@@ -113,8 +168,8 @@ function Hero() {
             <MotionButton
               size={'default'}
               variant={'secondary-gray'}
-              initial={{ y: offsets.vh * 0.95 }}
-              animate={{ y: 0 }}
+              initial={{ y: vh * 0.95 }}
+              animate={button2Controls}
               transition={transition}
             >
               {translate('ctaContact')}
@@ -122,8 +177,10 @@ function Hero() {
           </div>
         </div>
 
-        <div className="order-2 lg:order-3 flex flex-col items-center md:items-end mx-0 md:mx-auto lg:mx-0 mt-auto gap-3 mb-0 lg:mb-20">
-          {/* TODO: Move this to logic? */}
+        <div
+          className="order-2 lg:order-3 flex flex-col items-center md:items-end mx-0 md:mx-auto lg:mx-0 mt-auto gap-3 mb-0 lg:mb-20"
+          ref={badgesRef}
+        >
           {[
             HERO_BADGES.slice(0, 3),
             HERO_BADGES.slice(3, 5),
@@ -138,11 +195,10 @@ function Hero() {
                   type={'pillColor'}
                   initial={{
                     x:
-                      offsets.vw *
-                        (rowIndex === 0 ? 0.6 : rowIndex === 1 ? 0.8 : 1.0) +
-                      offsets.vw * 0.15 * badgeIndex,
+                      vw * (rowIndex === 0 ? 0.6 : rowIndex === 1 ? 0.8 : 1.0) +
+                      vw * 0.15 * badgeIndex,
                   }}
-                  animate={{ x: 0 }}
+                  animate={badgesControls}
                   transition={transition}
                 >
                   {badge}
