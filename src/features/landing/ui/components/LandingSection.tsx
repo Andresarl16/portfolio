@@ -3,7 +3,7 @@ import { cn } from '@/lib/cn';
 
 interface LandingSectionProps {
   children: React.ReactNode;
-  className: {
+  className?: {
     div?: string;
     section?: string;
   };
