@@ -18,9 +18,13 @@ function SystemsIHaveBuiltCard({
   roleBadges,
   keyPointsTitle,
   keyPoints,
+  ...props
 }: ISystemsIHaveBuiltCardProps) {
   return (
-    <div className="flex flex-col min-w-100 max-w-100 bg-brand-500 rounded-xl gap-4 px-6 py-5">
+    <div
+      className="flex flex-col min-w-100 max-w-100 bg-brand-500 rounded-xl gap-4 px-6 py-5"
+      {...props}
+    >
       <div className="flex flex-col gap-2">
         <Text
           as="h3"
