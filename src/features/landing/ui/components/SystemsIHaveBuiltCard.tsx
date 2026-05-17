@@ -56,7 +56,7 @@ function SystemsIHaveBuiltCard({
         </Text>
 
         <ul className="flex gap-2">
-          {/* TODO: Add As LI */}
+          {/* TODO: Add As LI and Fixe Styles*/}
           {roleBadges.map((badge) => (
             <Badge key={badge} type={'badgeColor'} color={'brand'}>
               {badge}
