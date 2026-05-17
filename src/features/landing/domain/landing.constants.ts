@@ -30,3 +30,19 @@ export type WhatIBuildCardKey =
   | 'architecture-first-thinking'
   | 'production-ready-systems'
   | 'reusable-components';
+
+export type ToolboxGroupKey = 'quality' | 'frontend' | 'backend' | 'tooling';
+
+export type ToolboxItemKey =
+  | 'jest'
+  | 'cypress'
+  | 'typescript'
+  | 'nextjs'
+  | 'react'
+  | 'tailwindcss'
+  | 'mongodb'
+  | 'postgresql'
+  | 'nodejs'
+  | 'supabase'
+  | 'github'
+  | 'ci-cd-pipelines';

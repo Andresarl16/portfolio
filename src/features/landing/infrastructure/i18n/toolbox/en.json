@@ -1,0 +1,42 @@
+{
+  "title": "Toolbox",
+  "description": "My career has evolved from building interfaces to leading teams and designing systems.",
+  "groups": [
+    {
+      "key": "quality",
+      "title": "Quality",
+      "elementKeys": [
+        { "key": "jest", "name": "Jest" },
+        { "key": "cypress", "name": "Cypress" }
+      ]
+    },
+    {
+      "key": "frontend",
+      "title": "Frontend",
+      "elementKeys": [
+        { "key": "typescript", "name": "TypeScript" },
+        { "key": "nextjs", "name": "Next.js" },
+        { "key": "react", "name": "React" },
+        { "key": "tailwindcss", "name": "Tailwind CSS" }
+      ]
+    },
+    {
+      "key": "backend",
+      "title": "Backend",
+      "elementKeys": [
+        { "key": "mongodb", "name": "MongoDB" },
+        { "key": "postgresql", "name": "PostgreSQL" },
+        { "key": "nodejs", "name": "Node.js" },
+        { "key": "supabase", "name": "Supabase" }
+      ]
+    },
+    {
+      "key": "tooling",
+      "title": "Tooling",
+      "elementKeys": [
+        { "key": "github", "name": "GitHub" },
+        { "key": "ci-cd-pipelines", "name": "CI/CD Pipelines" }
+      ]
+    }
+  ]
+}
