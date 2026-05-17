@@ -15,8 +15,9 @@ function SystemsIHaveBuilt() {
       className={{
         section: 'bg-brand-200',
       }}
+      removePadding={{ left: true, right: true }}
     >
-      <div className="flex flex-col gap-2 mb-10">
+      <div className="flex flex-col gap-2 mb-10 px-12 sm:px-16 lg:px-24">
         <Text
           as="h1"
           className="txt-brand-primary-900"
@@ -36,7 +37,7 @@ function SystemsIHaveBuilt() {
         </Text>
       </div>
 
-      <div className="flex gap-3 ">
+      <div className="flex gap-3 overflow-x-auto px-12 sm:px-16 lg:px-24">
         {systems.map((system) => (
           <SystemsIHaveBuiltCard
             key={system.title}
