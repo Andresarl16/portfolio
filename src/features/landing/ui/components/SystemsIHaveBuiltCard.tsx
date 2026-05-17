@@ -5,18 +5,22 @@ import React from 'react';
 interface ISystemsIHaveBuiltCardProps {
   title: string;
   description: string;
+  roleTitle: string;
   roleBadges: Array<string>;
+  keyPointsTitle: string;
   keyPoints: Array<string>;
 }
 
 function SystemsIHaveBuiltCard({
   title,
   description,
+  roleTitle,
   roleBadges,
+  keyPointsTitle,
   keyPoints,
 }: ISystemsIHaveBuiltCardProps) {
   return (
-    <div className="flex flex-col max-w-100 bg-brand-500 rounded-xl gap-4 px-6 py-5">
+    <div className="flex flex-col min-w-100 max-w-100 bg-brand-500 rounded-xl gap-4 px-6 py-5">
       <div className="flex flex-col gap-2">
         <Text
           as="h3"
@@ -44,7 +48,7 @@ function SystemsIHaveBuiltCard({
           fontWeight={'medium'}
           fontSize={'sm'}
         >
-          Role
+          {roleTitle}
         </Text>
 
         <ul className="flex gap-2">
@@ -64,7 +68,7 @@ function SystemsIHaveBuiltCard({
           fontWeight={'medium'}
           fontSize={'sm'}
         >
-          Key Points
+          {keyPointsTitle}
         </Text>
 
         <ul className="flex flex-col gap-1 list-disc pl-6">

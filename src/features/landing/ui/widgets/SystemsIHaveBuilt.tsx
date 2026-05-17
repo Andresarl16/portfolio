@@ -1,9 +1,15 @@
+'use client';
+
 import React from 'react';
 import LandingSection from '../components/LandingSection';
 import { Text } from '@/components/atoms/text';
 import SystemsIHaveBuiltCard from '../components/SystemsIHaveBuiltCard';
+import { useSystemsIHaveBuiltTranslations } from '../../application/useSystemsIHaveBuiltTranslations';
 
 function SystemsIHaveBuilt() {
+  const translate = useSystemsIHaveBuiltTranslations();
+  const systems = translate('systems');
+
   return (
     <LandingSection
       className={{
@@ -18,7 +24,7 @@ function SystemsIHaveBuilt() {
           fontWeight={'bold'}
           fontSize={'xl'}
         >
-          Systems I’ve Built
+          {translate('title')}
         </Text>
         <Text
           as="h2"
@@ -26,24 +32,23 @@ function SystemsIHaveBuilt() {
           fontWeight={'regular'}
           fontSize={'xl'}
         >
-          Systems I’ve designed and led from concept to production, focusing on
-          scalability, maintainability and real-world impact.
+          {translate('description')}
         </Text>
       </div>
 
-      <SystemsIHaveBuiltCard
-        title={'Socado - Multi-App Commerce Ecosystem'}
-        description={
-          'A production ecosystem supporting web, mobile, self-checkout and admin experiences for real businesses.'
-        }
-        roleBadges={['Tech Lead', 'Architecture', 'Delivery']}
-        keyPoints={[
-          'Multi-app architecture (Web, Mobile, Kiosk, Admin)',
-          'Shared UI components and typed domain models',
-          'Scalable product and variant system',
-          'Production deployments and long-term maintenance',
-        ]}
-      />
+      <div className="flex gap-3 ">
+        {systems.map((system) => (
+          <SystemsIHaveBuiltCard
+            key={system.title}
+            title={system.title}
+            description={system.description}
+            roleTitle={system.roleTitle}
+            roleBadges={system.roleBadges}
+            keyPointsTitle={system.keyPointsTitle}
+            keyPoints={system.keyPoints}
+          />
+        ))}
+      </div>
     </LandingSection>
   );
 }

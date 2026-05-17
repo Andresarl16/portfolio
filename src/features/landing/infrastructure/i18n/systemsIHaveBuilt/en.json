@@ -1,0 +1,62 @@
+{
+  "title": "Systems I've Built",
+  "description": "Systems I’ve designed and led from concept to production, focusing on scalability, maintainability and real-world impact.",
+  "systems": [
+    {
+      "key": "multi-app-commerce-ecosystem",
+      "title": "Multi-App Commerce Ecosystem",
+      "description": "A production ecosystem supporting web, mobile, self-checkout and admin experiences for real businesses.",
+      "roleTitle": "Role",
+      "roleBadges": ["Tech Lead", "Architecture", "Delivery"],
+      "keyPointsTitle": "Key Points",
+      "keyPoints": [
+        "Multi-app architecture (Web, Mobile, Kiosk, Admin)",
+        "Shared UI components and typed domain models",
+        "Scalable product and variant system",
+        "Production deployments and long-term maintenance"
+      ]
+    },
+    {
+      "key": "dynamic-product-forms-system",
+      "title": "Dynamic Product & Forms System",
+      "description": "A flexible system to model complex products, variants and dynamic forms across different business needs.",
+      "roleTitle": "Role",
+      "roleBadges": ["Tech Lead", "Architecture"],
+      "keyPointsTitle": "Key Points",
+      "keyPoints": [
+        "Schema-driven dynamic forms",
+        "Reusable validation and configuration logic",
+        "Designed for scalability and future extensions",
+        "Strong focus on maintainability"
+      ]
+    },
+    {
+      "key": "insurance-client-portal",
+      "title": "Insurance Client Portal",
+      "description": "Customer-facing platform for insurance products, focused on usability, performance and clarity.",
+      "roleTitle": "Role",
+      "roleBadges": ["Tech Lead", "Architecture"],
+      "keyPointsTitle": "Key Points",
+      "keyPoints": [
+        "Dynamic multi-quote purchase flows",
+        "Dashboard-driven user experience",
+        "Performance-focused architecture",
+        "Unit and end-to-end testing (Jest, Cypress)"
+      ]
+    },
+    {
+      "key": "self-service-kiosk-experience",
+      "title": "Self-Service / Kiosk Experience",
+      "description": "Touch-first interfaces designed for guided user flows in physical environments.",
+      "roleTitle": "Role",
+      "roleBadges": ["Tech Lead", "Architecture"],
+      "keyPointsTitle": "Key Points",
+      "keyPoints": [
+        "Touch-optimized user flows",
+        "Shared logic with the web ecosystem",
+        "Reliability in real-world usage",
+        "Clear, guided UX patterns"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Sistemas que he construido",
+  "description": "Sistemas que he diseñado y liderado desde el concepto hasta la producción, enfocándome en la escalabilidad, mantenibilidad e impacto en el mundo real.",
+  "systems": [
+    {
+      "key": "multi-app-commerce-ecosystem",
+      "title": "Ecosistema de Comercio Multi-App",
+      "description": "Un ecosistema de producción que soporta experiencias web, móviles, de auto-pago y administrativas para negocios reales.",
+      "roleTitle": "Rol",
+      "roleBadges": ["Líder Técnico", "Arquitectura", "Entrega"],
+      "keyPointsTitle": "Puntos Clave",
+      "keyPoints": [
+        "Arquitectura multi-app (Web, Móvil, Kiosco, Admin)",
+        "Componentes de UI compartidos y modelos de dominio tipados",
+        "Sistema escalable de productos y variantes",
+        "Despliegues en producción y mantenimiento a largo plazo"
+      ]
+    },
+    {
+      "key": "dynamic-product-forms-system",
+      "title": "Sistema Dinámico de Productos y Formularios",
+      "description": "Un sistema flexible para modelar productos complejos, variantes y formularios dinámicos para diferentes necesidades comerciales.",
+      "roleTitle": "Rol",
+      "roleBadges": ["Líder Técnico", "Arquitectura"],
+      "keyPointsTitle": "Puntos Clave",
+      "keyPoints": [
+        "Formularios dinámicos impulsados por esquemas",
+        "Lógica de validación y configuración reutilizable",
+        "Diseñado para escalabilidad y futuras extensiones",
+        "Fuerte enfoque en la mantenibilidad"
+      ]
+    },
+    {
+      "key": "insurance-client-portal",
+      "title": "Portal de Clientes de Seguros",
+      "description": "Plataforma orientada al cliente para productos de seguros, enfocada en la usabilidad, el rendimiento y la claridad.",
+      "roleTitle": "Rol",
+      "roleBadges": ["Líder Técnico", "Arquitectura"],
+      "keyPointsTitle": "Puntos Clave",
+      "keyPoints": [
+        "Flujos de compra dinámicos de múltiples cotizaciones",
+        "Experiencia de usuario impulsada por paneles",
+        "Arquitectura enfocada en el rendimiento",
+        "Pruebas unitarias y end-to-end (Jest, Cypress)"
+      ]
+    },
+    {
+      "key": "self-service-kiosk-experience",
+      "title": "Experiencia de Autoservicio / Kiosco",
+      "description": "Interfaces optimizadas para pantallas táctiles diseñadas para flujos de usuario guiados en entornos físicos.",
+      "roleTitle": "Rol",
+      "roleBadges": ["Líder Técnico", "Arquitectura"],
+      "keyPointsTitle": "Puntos Clave",
+      "keyPoints": [
+        "Flujos de usuario optimizados para pantallas táctiles",
+        "Lógica compartida con el ecosistema web",
+        "Fiabilidad en el uso en el mundo real",
+        "Patrones de UX claros y guiados"
+      ]
+    }
+  ]
+}
