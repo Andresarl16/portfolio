@@ -1,5 +1,13 @@
 import { Text } from '@/components/atoms/text';
-import React from 'react';
+import useScrollReveal from '@/shared/hooks/useScrollReveal';
+import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
+import { motion, Transition } from 'motion/react';
+import React, { useRef } from 'react';
+
+const transition: Transition = {
+  duration: 0.9,
+  ease: [0.25, 0.1, 0.25, 1],
+};
 
 interface IArchitectureAndThinkingElementProps {
   title: string;
@@ -12,8 +20,23 @@ function ArchitectureAndThinkingElement({
   descriptionLine1,
   descriptionLine2,
 }: IArchitectureAndThinkingElementProps) {
+  const offset = useViewportOffsets();
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  const { animationControls } = useScrollReveal({
+    ref: elementRef,
+    amount: 0.1,
+    animationStart: { definition: { y: 0 } },
+  });
+
   return (
-    <div className="flex flex-col items-center mx-auto gap-3">
+    <motion.div
+      className="flex flex-col items-center mx-auto gap-3"
+      ref={elementRef}
+      initial={{ y: offset.vh / 2 }}
+      animate={animationControls}
+      transition={transition}
+    >
       <hr className="w-8 border border-brand-400" />
 
       <Text
@@ -35,7 +58,7 @@ function ArchitectureAndThinkingElement({
         <span className="text-center">{descriptionLine1}</span>
         <span className="text-center">{descriptionLine2}</span>
       </Text>
-    </div>
+    </motion.div>
   );
 }
 
