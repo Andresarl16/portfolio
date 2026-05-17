@@ -35,6 +35,7 @@ export interface TextProps
   as?: TTextAllowedTag;
   children: React.ReactNode;
   responsiveVariants?: ResponsiveCVA<TextVariantsProps>;
+  ref: React.Ref<HTMLElement>;
 }
 
 function Text({

@@ -11,9 +11,13 @@ function WhatIBuildCard({
   className,
   title,
   description,
+  ...props
 }: WhatIBuildCardProps) {
   return (
-    <div className={cn('bg-brand-500 px-6 py-5 gap-3 rounded-xl', className)}>
+    <div
+      className={cn('bg-brand-500 px-6 py-5 gap-3 rounded-xl', className)}
+      {...props}
+    >
       <Text
         className="txt-secondary_on-brand"
         fontFamily={'display'}

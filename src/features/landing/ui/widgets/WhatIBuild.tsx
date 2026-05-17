@@ -1,19 +1,14 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Text } from '@/components/atoms/text';
 import { cn } from '@/lib/cn';
 import { useWhatIBuildTranslations } from '../../application/useWhatIBuildTranslations';
 import type { WhatIBuildCardKey } from '../../domain/landing.constants';
 import LandingSection from '../components/LandingSection';
 import WhatIBuildCard from '../components/WhatIBuildCard';
-import {
-  motion,
-  Transition,
-  useInView,
-  useAnimationControls,
-} from 'motion/react';
-import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
+import { motion, Transition, Variants } from 'motion/react';
+import useScrollReveal from '@/shared/hooks/useScrollReveal';
 
 const cardsStylesByKey: Record<WhatIBuildCardKey, string> = {
   /* TODO: Change to enumObject */
@@ -25,7 +20,12 @@ const cardsStylesByKey: Record<WhatIBuildCardKey, string> = {
     'order-8 col-start-2 sm:col-start-3 lg:col-start-5 xl:col-start-4',
 };
 
+function getCardStyles(key: WhatIBuildCardKey): string {
+  return cardsStylesByKey[key] ?? '';
+}
+
 const MotionText = motion(Text);
+const WhatIBuildCardMotion = motion(WhatIBuildCard);
 
 const transition: Transition = {
   duration: 0.9,
@@ -33,78 +33,88 @@ const transition: Transition = {
   ease: [0.25, 0.1, 0.25, 1],
 };
 
+const cardVariants: Variants = {
+  hidden: { x: -500 },
+  visible: { x: 0 },
+};
+
+const revealToY0 = { definition: { y: 0 } };
+
 function WhatIBuild() {
   const translate = useWhatIBuildTranslations();
   const cards = translate('cards');
 
-  const offsets = useViewportOffsets();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const titleControls = useAnimationControls();
-  const descControls = useAnimationControls();
+  const titleDescriptionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (isInView) {
-      titleControls.start({ y: 0 });
-      descControls.start({ y: 0 });
-    }
-  }, [isInView, titleControls, descControls]);
+  const { animationControls: titleControls } = useScrollReveal({
+    ref: titleDescriptionRef,
+    amount: 0.2,
+    animationStart: revealToY0,
+  });
 
-  function getCardStyles(key: WhatIBuildCardKey): string {
-    return cardsStylesByKey[key] ?? '';
-  }
+  const { animationControls: descriptionControls } = useScrollReveal({
+    ref: titleDescriptionRef,
+    amount: 0.2,
+    animationStart: revealToY0,
+  });
 
   return (
-    <div ref={ref}>
-      <LandingSection
-        className={{
-          div: 'grid grid-cols-7 xl:grid-cols-5 gap-4',
-          section: 'bg-primary',
-        }}
+    <LandingSection
+      className={{
+        div: 'grid grid-cols-7 xl:grid-cols-5 gap-4',
+        section: 'bg-primary',
+      }}
+    >
+      <div
+        className="col-span-7 lg:col-span-3 xl:col-span-2 row-span-2 col-start-1 lg:col-start-5 xl:col-start-4 order-0 lg:order-3 flex flex-col gap-2"
+        ref={titleDescriptionRef}
       >
-        <div className="col-span-7 lg:col-span-3 xl:col-span-2 row-span-2 col-start-1 lg:col-start-5 xl:col-start-4 order-0 lg:order-3 flex flex-col gap-2">
-          <MotionText
-            className="txt-primary-900 text-right"
-            fontFamily={'display'}
-            fontWeight={'bold'}
-            responsiveVariants={{
-              base: { fontSize: 'lg' },
-              xl: { fontSize: 'xl' },
-            }}
-            initial={{ y: -offsets.vh - 100 }}
-            animate={titleControls}
-            transition={transition}
-          >
-            {translate('title')}
-          </MotionText>
-          <MotionText
-            className="txt-secondary-700 text-right max-w-[44ch] lg:max-w-none ml-auto"
-            fontWeight={'regular'}
-            responsiveVariants={{
-              base: { fontSize: 'lg' },
-              xl: { fontSize: 'xl' },
-            }}
-            initial={{ y: -offsets.vh }}
-            animate={descControls}
-            transition={transition}
-          >
-            {translate('description')}
-          </MotionText>
-        </div>
+        <MotionText
+          className="txt-primary-900 text-right"
+          fontFamily={'display'}
+          fontWeight={'bold'}
+          responsiveVariants={{
+            base: { fontSize: 'lg' },
+            xl: { fontSize: 'xl' },
+          }}
+          initial={{ y: '-110vh' }}
+          animate={titleControls}
+          transition={transition}
+        >
+          {translate('title')}
+        </MotionText>
+        <MotionText
+          className="txt-secondary-700 text-right max-w-[44ch] lg:max-w-none ml-auto"
+          fontWeight={'regular'}
+          responsiveVariants={{
+            base: { fontSize: 'lg' },
+            xl: { fontSize: 'xl' },
+          }}
+          initial={{ y: '-100vh' }}
+          animate={descriptionControls}
+          transition={transition}
+        >
+          {translate('description')}
+        </MotionText>
+      </div>
 
-        {cards.map((card) => (
-          <WhatIBuildCard
-            className={cn(
-              'col-span-6 sm:col-span-5 lg:col-span-3 xl:col-span-2',
-              getCardStyles(card.key as WhatIBuildCardKey)
-            )}
-            key={card.key}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
-      </LandingSection>
-    </div>
+      {cards.map((card) => (
+        <WhatIBuildCardMotion
+          className={cn(
+            'col-span-6 sm:col-span-5 lg:col-span-3 xl:col-span-2',
+            getCardStyles(card.key as WhatIBuildCardKey)
+          )}
+          key={card.key}
+          title={card.title}
+          description={card.description}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={transition}
+        />
+      ))}
+    </LandingSection>
   );
 }
 
