@@ -9,6 +9,7 @@ import LandingSection from '../components/LandingSection';
 import WhatIBuildCard from '../components/WhatIBuildCard';
 import { motion, Transition, Variants } from 'motion/react';
 import useScrollReveal from '@/shared/hooks/useScrollReveal';
+import { useViewportOffsets } from '@/shared/hooks/useViewportOffsets';
 
 const cardsStylesByKey: Record<WhatIBuildCardKey, string> = {
   /* TODO: Change to enumObject */
@@ -25,17 +26,10 @@ function getCardStyles(key: WhatIBuildCardKey): string {
 }
 
 const MotionText = motion(Text);
-const WhatIBuildCardMotion = motion(WhatIBuildCard);
 
 const transition: Transition = {
   duration: 0.9,
-  delay: 0.1,
   ease: [0.25, 0.1, 0.25, 1],
-};
-
-const cardVariants: Variants = {
-  hidden: { x: -500 },
-  visible: { x: 0 },
 };
 
 const revealToY0 = { definition: { y: 0 } };
@@ -44,17 +38,18 @@ function WhatIBuild() {
   const translate = useWhatIBuildTranslations();
   const cards = translate('cards');
 
+  const offset = useViewportOffsets();
   const titleDescriptionRef = useRef<HTMLDivElement>(null);
 
   const { animationControls: titleControls } = useScrollReveal({
     ref: titleDescriptionRef,
-    amount: 0.2,
+    amount: 0.15,
     animationStart: revealToY0,
   });
 
   const { animationControls: descriptionControls } = useScrollReveal({
     ref: titleDescriptionRef,
-    amount: 0.2,
+    amount: 0.15,
     animationStart: revealToY0,
   });
 
@@ -77,7 +72,7 @@ function WhatIBuild() {
             base: { fontSize: 'lg' },
             xl: { fontSize: 'xl' },
           }}
-          initial={{ y: '-110vh' }}
+          initial={{ y: -offset.vh }}
           animate={titleControls}
           transition={transition}
         >
@@ -90,7 +85,7 @@ function WhatIBuild() {
             base: { fontSize: 'lg' },
             xl: { fontSize: 'xl' },
           }}
-          initial={{ y: '-100vh' }}
+          initial={{ y: -offset.vh }}
           animate={descriptionControls}
           transition={transition}
         >
@@ -98,8 +93,9 @@ function WhatIBuild() {
         </MotionText>
       </div>
 
-      {cards.map((card) => (
-        <WhatIBuildCardMotion
+      {cards.map((card, index) => (
+        <WhatIBuildCard
+          animationDirection={index % 2 === 0 ? 'leftToRight' : 'rightToLeft'}
           className={cn(
             'col-span-6 sm:col-span-5 lg:col-span-3 xl:col-span-2',
             getCardStyles(card.key as WhatIBuildCardKey)
@@ -107,11 +103,6 @@ function WhatIBuild() {
           key={card.key}
           title={card.title}
           description={card.description}
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={transition}
         />
       ))}
     </LandingSection>
