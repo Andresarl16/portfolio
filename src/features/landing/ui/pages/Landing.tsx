@@ -6,6 +6,7 @@ import SystemsIHaveBuilt from '../widgets/SystemsIHaveBuilt';
 import ArchitectureAndThinking from '../widgets/ArchitectureAndThinking';
 import Toolbox from '../widgets/Toolbox';
 import Experience from '../widgets/Experience';
+import ContactMe from '../widgets/ContactMe';
 
 function Landing() {
   return (
@@ -24,6 +25,8 @@ function Landing() {
         <Experience />
 
         <Toolbox />
+
+        <ContactMe />
       </Suspense>
     </main>
   );

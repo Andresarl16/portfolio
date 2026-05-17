@@ -31,7 +31,7 @@ export const toolboxItemIcons: Record<ToolboxItemKey, React.ReactNode> = {
   postgresql: <PostgressSqlIcon className={cn(generalIconClassName)} />,
   nodejs: null,
   supabase: <SupabaseIcon className={cn(generalIconClassName)} />,
-  github: <GitHubIcon className={cn(generalIconClassName)} />,
+  github: <GitHubIcon className={cn(generalIconClassName, 'text-[1B1F23]')} />,
   'ci-cd-pipelines': <CiCdPipelinesIcon className={cn(generalIconClassName)} />,
 };
 
