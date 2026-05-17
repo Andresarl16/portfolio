@@ -5,6 +5,7 @@ import WhatIBuild from '../widgets/WhatIBuild';
 import SystemsIHaveBuilt from '../widgets/SystemsIHaveBuilt';
 import ArchitectureAndThinking from '../widgets/ArchitectureAndThinking';
 import Toolbox from '../widgets/Toolbox';
+import Experience from '../widgets/Experience';
 
 function Landing() {
   return (
@@ -19,6 +20,8 @@ function Landing() {
         <SystemsIHaveBuilt />
 
         <ArchitectureAndThinking />
+
+        <Experience />
 
         <Toolbox />
       </Suspense>
